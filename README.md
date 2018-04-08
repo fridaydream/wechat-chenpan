@@ -47,8 +47,6 @@ axios还不行
 ####17查看预览状态
 
 
-代码已开源到[https://github.com/fridaydream/wechat-chenpan](https://github.com/fridaydream/wechat-chenpan) 上，欢迎围观，觉得好的话，留个星。
-
 <center>
 ![alt 微信二维码](https://raw.githubusercontent.com/fridaydream/blogpic/master/qrcode_wechat.jpg "微信二维码")
 </center> 
