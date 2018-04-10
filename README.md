@@ -46,5 +46,6 @@ axios还不行
 
 ####17查看预览状态
 
+由于本公众号属于个人订阅号，无法认证，部分接口没权限，但在测试公众号里面都跑通过了。
 
 ![alt 微信二维码](https://raw.githubusercontent.com/fridaydream/blogpic/master/qrcode_wechat.jpg "微信二维码")
