@@ -44,7 +44,7 @@ const postHandle = async(ctx, next) => {
             if (msg.EventKey) {
                 console.log('扫二维码进来' + msg.EventKey + ' ' + msg.ticket);
             }
-            replyContent = '哈哈，订阅了个号\r\n可以回复1到17之间的数字查看特别信息哦';
+            replyContent = '哈哈，订阅了个号\r\n可以回复1到17之间的数字查看特别信息哦，回复搜+电影名称可以查看实时电影预告片哦';
         } else if (msg.Event === 'unsubscribe') {
             console.log('无情取关');
             replyContent = '';
@@ -349,7 +349,7 @@ const postHandle = async(ctx, next) => {
             replyContent = [{
                 title: replyData.title,
                 description: `电影评价${replyData.rate}分，快点击进去看看精彩内容吧!`,
-                picUrl: replyData.coverKey || replyData.cover,
+                picUrl: replyData.coverKey || replyData.cover || replyData.posterKey || replyData.poster,
                 url: `https://movie.daxierhao.com/movie/subject/${replyData.doubanId}`
             }];
             result = wx.message.news(msg, replyContent);
