@@ -341,6 +341,19 @@ const postHandle = async(ctx, next) => {
             default:
                 result = 'success'
         }
+        if (content.startsWith('搜')) {
+            const movieName = content.replace('搜', '')
+            let movieData = await wechatApi.fetchMovieData(encodeURIComponent(movieName), 1);
+            console.log(movieData)
+            let replyData = movieData.data[0]
+            replyContent = [{
+                title: replyData.title,
+                description: `电影评价${replyData.rate}分，快点击进去看看精彩内容吧!`,
+                picUrl: replyData.coverKey || replyData.cover,
+                url: `https://movie.daxierhao.com/movie/subject/${replyData.doubanId}`
+            }];
+            result = wx.message.news(msg, replyContent);
+        }
     }else if(msg.PicUrl){
         replyContent='您推送的事件已接收，返回url地址：'+msg.PicUrl;
         result = wx.message.text(msg, replyContent);

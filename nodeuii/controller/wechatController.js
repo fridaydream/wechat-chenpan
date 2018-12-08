@@ -46,6 +46,9 @@ const api = {
         fetch:prefix+'menu/get',
         del:prefix+'menu/delete',
         current:prefix+'get_current_selfmenu_info'
+    },
+    movie: {
+        search: 'http://47.94.140.198:8081/api/v0/movies/search'
     }
 }
 class wechatController {
@@ -874,6 +877,27 @@ class wechatController {
                         .catch(function(error) {
                             reject(error);
                         })
+                })
+        });
+    }
+    // 通过关键字搜索电影
+    fetchMovieData(name, count) {
+        return new Promise(function(resolve, reject) {
+            let url = api.movie.search + '?q=' + name +'&count=' + count;
+            console.log('url', url)
+            request({
+                    method: 'get',
+                    url: url,
+                    json: true,
+                }).then(function(response) {
+                    if (response) {
+                        resolve(response.body);
+                    } else {
+                        throw new Error('get movie fail');
+                    }
+                })
+                .catch(function(error) {
+                    reject(error);
                 })
         });
     }
