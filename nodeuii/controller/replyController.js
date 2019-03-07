@@ -44,7 +44,7 @@ const postHandle = async(ctx, next) => {
             if (msg.EventKey) {
                 console.log('扫二维码进来' + msg.EventKey + ' ' + msg.ticket);
             }
-            replyContent = '哈哈，订阅了个号\r\n可以回复1到17之间的数字查看特别信息哦，回复搜+电影名称可以查看实时电影预告片哦';
+            replyContent = 'Hi，很高心见到你，我叫小群，可以为你提供各种问题解答，包括笑话大全，成语接龙，问答百科，中英翻译等等，你可以回复1到17之间的数字查看特别信息哦，回复搜+电影名称可以查看实时电影预告片哦';
         } else if (msg.Event === 'unsubscribe') {
             console.log('无情取关');
             replyContent = '';
@@ -356,9 +356,6 @@ const postHandle = async(ctx, next) => {
         }
     }else if(msg.PicUrl){
         replyContent='您推送的事件已接收，返回url地址：'+msg.PicUrl;
-        result = wx.message.text(msg, replyContent);
-    }else{
-        replyContent='empty message';
         result = wx.message.text(msg, replyContent);
     }
     ctx.type="application/xml";
